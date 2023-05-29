@@ -1,6 +1,7 @@
 <?php
     include('session.php');
 ?>
+<?php include('navbar.php'); ?>
 
 <html>
 <head>

@@ -3,6 +3,7 @@
     include("config.php");
     $rest_id = $_GET['rest_id'];
 ?>
+<?php include('navbar.php'); ?>
 
 <html>
 <head>
