@@ -1,3 +1,7 @@
+<?php
+    include('session.php');
+?>
+
 <html>
 <head>
 	<title>餐廳自取外賣平台</title>
@@ -14,7 +18,7 @@
 	}
 </style>
 <body>
-
+<h1>Welcome <?php echo $login_session; ?></h1> 
 <h1 align="center">餐廳自取外賣平台</h1>
 <table style="width:50%" align="center">
 	<tr>
@@ -30,24 +34,7 @@
 	<!-- PHP code to retrieve and display data from the database -->
 
 	<?php
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "restaurant_takeout_db";
-
-		// Connect to MySQL server
-		$conn = new mysqli($servername, $username, $password, $dbname);
-
-		// Set up character set
-		if (!$conn->set_charset("utf8")) {
-			printf("Error loading character set utf8: %s\n", $conn->error);
-			exit();
-		}
-
-		// Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
+		include("config.php");
 
 		// Retrieve data from the restaurant table
 		$sql = "SELECT * FROM restaurant";
