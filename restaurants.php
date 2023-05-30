@@ -38,7 +38,7 @@
 		<th>Address</th>
 		<th>Description</th>
 		<th>Operating Hours</th>
-		<th colspan="2">Action</th>
+		<!-- <th colspan="2">Action</th> -->
 	</tr>
 
 	<!-- PHP code to retrieve and display data from the database -->
@@ -59,8 +59,8 @@
 				echo "<td>".$row["rest_address"]."</td>";
 				echo "<td>".$row["rest_description"]."</td>";
 				echo "<td>".$row["rest_open_status"]."</td>";
-				echo "<td><a href='update.php?id=".$row["rest_id"]."'>Modify</a></td>";
-				echo "<td><a href='delete.php?id=".$row["rest_id"]."'>Delete</a></td>";
+				// echo "<td><a href='update.php?id=".$row["rest_id"]."'>Modify</a></td>";
+				// echo "<td><a href='delete.php?id=".$row["rest_id"]."'>Delete</a></td>";
 				echo "</tr>";
 			}
 		} else {
@@ -71,6 +71,6 @@
 	?>
 
 </table>
-<p align="center"><a href="create.html">Add Data</a></p>
+<!-- <p align="center"><a href="create.html">Add Data</a></p> -->
 </body>
 </html>

@@ -39,7 +39,7 @@
 		<th>Order Cost</th>
 		<th>Order Status</th>
 		<th>Pickup Time</th>
-		<th colspan="2">Action</th>
+		<!-- <th colspan="2">Action</th> -->
 	</tr>
 
 	<?php
@@ -54,8 +54,8 @@
                 echo "<td>".$row["order_total_cost"]."</td>";
                 echo "<td>".$row["order_status"]."</td>";
                 echo "<td>".$row["pickup_time"]."</td>";
-                echo "<td><a href='update.php?id=".$row["order_id"]."'>Modify</a></td>";
-                echo "<td><a href='delete.php?id=".$row["order_id"]."'>Delete</a></td>";
+                // echo "<td><a href='update.php?id=".$row["order_id"]."'>Modify</a></td>";
+                // echo "<td><a href='delete.php?id=".$row["order_id"]."'>Delete</a></td>";
                 echo "</tr>";
             }
         } else {
@@ -66,6 +66,6 @@
 	?>
 
 </table>
-<p align="center"><a href="create.html">Add Data</a></p>
+<!-- <p align="center"><a href="create.html">Add Data</a></p> -->
 </body>
 </html>
