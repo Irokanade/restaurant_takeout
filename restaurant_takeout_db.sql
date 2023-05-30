@@ -42,7 +42,6 @@ CREATE TABLE IF NOT EXISTS `customer` (
 CREATE TABLE IF NOT EXISTS `rest_login_cred` (
     `rest_id` INT NOT NULL,
     `login_id` INT NOT NULL,
-    PRIMARY KEY (`rest_id`, `login_id`),
     FOREIGN KEY (`rest_id`) REFERENCES `restaurant`(`rest_id`) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (`login_id`) REFERENCES `login_cred`(`login_id`) ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -50,7 +49,6 @@ CREATE TABLE IF NOT EXISTS `rest_login_cred` (
 CREATE TABLE IF NOT EXISTS `cust_login_cred` (
     `cust_id` INT NOT NULL,
     `login_id` INT NOT NULL,
-    PRIMARY KEY (`cust_id`, `login_id`),
     FOREIGN KEY (`cust_id`) REFERENCES `customer`(`cust_id`) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (`login_id`) REFERENCES `login_cred`(`login_id`) ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -58,7 +56,6 @@ CREATE TABLE IF NOT EXISTS `cust_login_cred` (
 CREATE TABLE IF NOT EXISTS `restaurant_menu` (
     `rest_id` INT NOT NULL,
     `menu_id` INT NOT NULL,
-    PRIMARY KEY (`rest_id`, `menu_id`),
     FOREIGN KEY (`rest_id`) REFERENCES `restaurant`(`rest_id`) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (`menu_id`) REFERENCES `menu`(`menu_id`) ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -66,7 +63,6 @@ CREATE TABLE IF NOT EXISTS `restaurant_menu` (
 CREATE TABLE IF NOT EXISTS `order_items` (
     `menu_id` INT NOT NULL,
     `order_id` INT NOT NULL,
-    PRIMARY KEY (`menu_id`, `order_id`),
     FOREIGN KEY (`menu_id`) REFERENCES `menu`(`menu_id`) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (`order_id`) REFERENCES `order`(`order_id`) ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -74,7 +70,6 @@ CREATE TABLE IF NOT EXISTS `order_items` (
 CREATE TABLE IF NOT EXISTS `cust_order` (
     `cust_id` INT NOT NULL,
     `order_id` INT NOT NULL,
-    PRIMARY KEY (`cust_id`, `order_id`),
     FOREIGN KEY (`cust_id`) REFERENCES `customer`(`cust_id`) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (`order_id`) REFERENCES `order`(`order_id`) ON UPDATE CASCADE ON DELETE CASCADE
 );

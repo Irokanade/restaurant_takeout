@@ -1,5 +1,6 @@
 <?php
     include('session.php');
+	include("config.php");
 ?>
 <?php include('navbar.php'); ?>
 
@@ -19,7 +20,15 @@
 	}
 </style>
 <body>
-<h1>Welcome <?php echo $login_session; ?></h1> 
+<h1>Welcome <?php
+		$sql = "SELECT user_name FROM login_cred WHERE login_id = '$login_session'";
+		$result = $conn->query($sql);
+		if ($result->num_rows > 0) {
+			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+			$user_name = $row["user_name"];
+			echo $user_name;
+		}
+		?></h1>
 <h1 align="center">餐廳自取外賣平台</h1>
 <table style="width:50%" align="center">
 	<tr>
@@ -35,7 +44,6 @@
 	<!-- PHP code to retrieve and display data from the database -->
 
 	<?php
-		include("config.php");
 
 		// Retrieve data from the restaurant table
 		$sql = "SELECT * FROM restaurant";
@@ -45,7 +53,7 @@
 			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 				echo "<tr>";
 				// echo "<td>".$row["rest_id"]."</td>";
-				echo '<td><a href="menu.php?rest_id='.$row["rest_id"] . '">' . $row["rest_name"] . '</a></td>';
+				echo '<td><a href="menu.php?rest_id='.$row["rest_id"] . '">' . $row["rest_id"] . '</a></td>';
 				echo "<td>".$row["rest_name"]."</td>";
 				echo "<td>".$row["rest_telp_num"]."</td>";
 				echo "<td>".$row["rest_address"]."</td>";

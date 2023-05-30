@@ -28,6 +28,7 @@
     <ul>
         <li><a class="active" href="restaurants.php">Home</a></li>
         <li><a href="myOrders.php">My Orders</a></li>
+        <li><a href="myCart.php">My Cart</a></li>
         <li><a class="active" href="logout.php">Logout</a></li>
     </ul>
 </nav>

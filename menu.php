@@ -45,7 +45,7 @@
 		if ($result->num_rows > 0) {
 			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 				echo "<tr>";
-				echo "<td>".$row["menu_id"]."</td>";
+				echo "<td><a href='addToCartPage.php?menu_id=".$row["menu_id"]."'>".$row["menu_id"]."</a></td>";
 				echo "<td>".$row["food_name"]."</td>";
 				echo "<td>".$row["food_price"]."</td>";
 				echo "<td>".$row["food_description"]."</td>";

@@ -7,12 +7,13 @@
     if ($result->num_rows > 0) {
         $cust_id = $row["cust_id"];
     }
+    $order_id = $_GET['order_id'];
 ?>
 <?php include('navbar.php'); ?>
 
 <html>
 <head>
-	<title>My Orders</title>
+	<title>Order Items</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <style>
@@ -34,38 +35,39 @@
                         echo $user_name;
                     }?> orders</h1>
 <table style="width:50%" align="center">
-	<tr>
-		<th>ID</th>
-		<th>Order Cost</th>
-		<th>Order Status</th>
-		<th>Pickup Time</th>
-		<th colspan="2">Action</th>
-	</tr>
+    <tr>
+        <th>ID</th>
+        <th>Food Name</th>
+        <th>Food Price</th>
+        <th>Food Description</th>
+    </tr>
 
-	<?php
-		// Retrieve data from the menu table
-		$sql = "SELECT * FROM `order` WHERE `order_id` IN (SELECT `order_id` FROM `cust_order` WHERE `cust_id` = '$cust_id')";
+    <?php
+        // Retrieve data from the order_items and menu tables with order_id = $order_id
+        $sql = "SELECT oi.menu_id, m.food_name, m.food_price, m.food_description
+                FROM order_items oi
+                INNER JOIN menu m ON oi.menu_id = m.menu_id
+                WHERE oi.order_id = '$order_id'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                 echo "<tr>";
-                echo "<td><a href='orderItems.php?order_id=".$row["order_id"]."'>" . $row["order_id"] . "</a></td>";
-                echo "<td>".$row["order_total_cost"]."</td>";
-                echo "<td>".$row["order_status"]."</td>";
-                echo "<td>".$row["pickup_time"]."</td>";
-                echo "<td><a href='update.php?id=".$row["order_id"]."'>Modify</a></td>";
-                echo "<td><a href='delete.php?id=".$row["order_id"]."'>Delete</a></td>";
+                echo "<td>".$row["menu_id"]."</td>";
+                echo "<td>".$row["food_name"]."</td>";
+                echo "<td>".$row["food_price"]."</td>";
+                echo "<td>".$row["food_description"]."</td>";
                 echo "</tr>";
             }
         } else {
-            echo "<tr><td colspan='6'>0 results</td></tr>";
+            echo "<tr><td colspan='4'>0 results</td></tr>";
         }
 
         $conn->close();
-	?>
+    ?>
 
 </table>
+
 <p align="center"><a href="create.html">Add Data</a></p>
 </body>
 </html>
