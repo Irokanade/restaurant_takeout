@@ -34,7 +34,7 @@
 		<th>Food Name</th>
 		<th>Food Price</th>
 		<th>Food Description</th>
-		<th colspan="2">Action</th>
+		<!-- <th colspan="2">Action</th> -->
 	</tr>
 
 	<?php
