@@ -34,18 +34,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->query($sql);
 
         // Insert into menu_order table
-        $sql = "INSERT INTO `order_items` (`menu_id`, `order_id`) VALUES ('$menu_id', '$order_id')";
-        $conn->query($sql);
+        for ($i = 0; $i < $quantity; $i++) {
+            // update order table
+            $sql = "UPDATE `order` SET `order_total_cost` = `order_total_cost` + '$food_price' WHERE `order_id` = '$order_id'";
+            $conn->query($sql);
+
+            $sql = "INSERT INTO `order_items` (`menu_id`, `order_id`) VALUES ('$menu_id', '$order_id')";
+            $conn->query($sql);
+         }
 
     } else {
-        // Update order table
-        echo "else conditions rn";
-        $sql = "UPDATE `order` SET `order_total_cost` = `order_total_cost` + '$food_price' WHERE `order_id` = '$order_id'";
-        $conn->query($sql);
-
         // Insert into menu_order table
-        $sql = "INSERT INTO `order_items` (`menu_id`, `order_id`) VALUES ('$menu_id', '$order_id')";
-        $conn->query($sql);
+        for ($i = 0; $i < $quantity; $i++) {
+               // update order table
+               $sql = "UPDATE `order` SET `order_total_cost` = `order_total_cost` + '$food_price' WHERE `order_id` = '$order_id'";
+               $conn->query($sql);
+
+               $sql = "INSERT INTO `order_items` (`menu_id`, `order_id`) VALUES ('$menu_id', '$order_id')";
+               $conn->query($sql);
+         }
     }
 
     // Redirect to restaurants.php
