@@ -79,7 +79,6 @@ CREATE TABLE IF NOT EXISTS `cust_order` (
     FOREIGN KEY (`order_id`) REFERENCES `order`(`order_id`) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-
 INSERT INTO `restaurant` (`rest_telp_num`, `rest_address`, `rest_description`, `rest_open_status`, `rest_name`) VALUES
     ('+886-2-12345678', '123 Taipei St., Taipei City', 'A cozy restaurant serving traditional Taiwanese cuisine.', 'open', 'Taipei Delights'),
     ('+886-2-98765432', '456 Kaohsiung Rd., Kaohsiung City', 'Experience the taste of southern Taiwan in our restaurant.', 'closed', 'Kaohsiung Bistro');
@@ -95,6 +94,11 @@ INSERT INTO `restaurant_menu` (`rest_id`, `menu_id`) VALUES
     (1, 1),
     (2, 4);
 
+INSERT INTO `order` (`order_total_cost`, `order_status`, `pickup_time`) VALUES
+    (50, 'Pending', '2023-05-27 14:30:00'),
+    (75, 'Confirmed', '2023-05-27 18:00:00'),
+    (120, 'Delivered', '2023-05-28 12:15:00');
+
 INSERT INTO `login_cred` (`user_name`, `user_email`, `user_password`, `user_type`) VALUES 
     ('John Doe', 'john@example.com', 'password123', 'customer'),
     ('Pizza Palace', 'info@pizzapalace.com', 'restaurantpass', 'restaurant');
@@ -102,3 +106,17 @@ INSERT INTO `login_cred` (`user_name`, `user_email`, `user_password`, `user_type
 INSERT INTO `customer` (`cust_name`, `cust_telp_num`) VALUES 
     ('John Doe', '1234567890');
 
+INSERT INTO `cust_order` (`cust_id`, `order_id`) VALUES
+    (1, 1),
+    (1, 2);
+
+INSERT INTO `order_items` (`menu_id`, `order_id`) VALUES
+    (1, 1),
+    (2, 1),
+    (3, 2);
+
+INSERT INTO `cust_login_cred` (`cust_id`, `login_id`) VALUES
+    (1, 1);
+
+INSERT INTO `rest_login_cred` (`rest_id`, `login_id`) VALUES
+    (1, 2);
