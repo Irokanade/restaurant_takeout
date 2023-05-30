@@ -71,8 +71,7 @@
 
 </table>
 <p align="center">
-    <!-- <a href="create.html">Add Data</a> -->
-    <a href="payment.php?order_id=<?php echo $row['order_id']; ?>"><button type="button">Payment</button></a>
+    <a href="payment.php?order_id=<?php echo $order_id; ?>"><button type="button">Payment</button></a>
 </p>
 </body>
 </html>
