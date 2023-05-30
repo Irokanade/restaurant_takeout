@@ -86,8 +86,11 @@ INSERT INTO `menu` (`food_name`, `food_price`, `food_description`) VALUES
     ('Bubble Milk Tea', 60, 'A popular Taiwanese drink with tapioca pearls and creamy milk tea.');
 
 INSERT INTO `restaurant_menu` (`rest_id`, `menu_id`) VALUES
-    (1, 1),
-    (2, 4);
+    ('1', '1'),
+    ('1', '2'),
+    ('1', '3'),
+    ('2', '4'),
+    ('2', '5');
 
 INSERT INTO `order` (`order_total_cost`, `order_status`, `pickup_time`) VALUES
     (50, 'Pending', '2023-05-27 14:30:00'),
