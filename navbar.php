@@ -27,7 +27,7 @@
 <nav>
     <ul>
         <li><a class="active" href="restaurants.php">Home</a></li>
-        <li><a href="contact.php">Contact</a></li>
-        <li><a href="logout.php">Logout</a></li>
+        <li><a href="myOrders.php">My Orders</a></li>
+        <li><a class="active" href="logout.php">Logout</a></li>
     </ul>
 </nav>
