@@ -39,7 +39,6 @@
 		<th>Order Cost</th>
 		<th>Order Status</th>
 		<th>Pickup Time</th>
-		<!-- <th colspan="2">Action</th> -->
 	</tr>
 
 	<?php
