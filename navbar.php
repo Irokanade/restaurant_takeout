@@ -1,9 +1,12 @@
 <style>
+    nav{
+        font-family:Arial, Helvetica, sans-serif;
+    }
     nav ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
-        background-color: #f1f1f1;
+        background-color: #5085C4;
         overflow: hidden;
     }
 
@@ -13,7 +16,8 @@
 
     nav li a {
         display: block;
-        color: #333;
+        color: #FFFFFF;
+        font-weight: bold;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
