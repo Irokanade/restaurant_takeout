@@ -24,14 +24,9 @@
       <title>Sign in Page</title>
       
       <style type = "text/css">
-
          body {
-            background: #87DFEE;
             font-family:Arial, Helvetica, sans-serif;
             font-size:14px;
-         }
-         form {
-            background: #CEE9F3;
          }
          label {
             font-weight:bold;
@@ -45,10 +40,10 @@
       
    </head>
    
-   <body bgcolor = "#CEE9F3">
+   <body bgcolor = "#FFFFFF">
 	
       <div align = "center">
-         <div style = "background-color:#CEE9F3; width:300px; border: solid 1px #333333; " align = "left">
+         <div style = "width:300px; border: solid 1px #333333; " align = "left">
             <div style = "background-color:#333333; color:#FFFFFF; padding:3px;"><b>Sign in</b></div>
 				
             <div style = "margin:30px">
@@ -62,9 +57,9 @@
                      <option value="customer">Customer</option>
                      <option value="restaurant">Restaurant</option>
                   </select><br><br>
-                  <input style = "background:#5085C4; color:white;" type = "submit" value = " Submit "/><br/>
+                  <input type = "submit" value = " Submit "/><br/>
                </form>
-               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php# echo $error; ?></div>
+               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php #echo $error; ?></div>
 					
             </div>
 				
@@ -74,4 +69,3 @@
 
    </body>
 </html>
-

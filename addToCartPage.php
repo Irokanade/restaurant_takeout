@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if orderPlaced
     if ($orderPlaced == null) {
         // Insert into order table and retrieve the newly inserted order_id
-        $sql = "INSERT INTO `order` (`order_total_cost`, `order_status`, `pickup_time`) VALUES ('0', 'Not Placed', DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s'))";
+        $sql = "INSERT INTO `order` (`order_total_cost`, `order_status`, `pickup_time`) VALUES ('$food_price', 'Not Placed', DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s'))";
         $conn->query($sql);
 
         // Retrieve the newly inserted order_id

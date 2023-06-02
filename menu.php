@@ -18,6 +18,8 @@
 	th, td {
 		padding: 5px;
 		text-align: left;
+		font-family:'Lucida Sans' ;
+		font-weight: bold;
 	}
 </style>
 <body>
@@ -34,7 +36,7 @@
 		<th>Food Name</th>
 		<th>Food Price</th>
 		<th>Food Description</th>
-		<!-- <th colspan="2">Action</th> -->
+		<th colspan="2">Action</th>
 	</tr>
 
 	<?php
@@ -49,8 +51,8 @@
 				echo "<td>".$row["food_name"]."</td>";
 				echo "<td>".$row["food_price"]."</td>";
 				echo "<td>".$row["food_description"]."</td>";
-				// echo "<td><a href='update.php?id=".$row["rest_id"]."'>Modify</a></td>";
-				// echo "<td><a href='delete.php?id=".$row["rest_id"]."'>Delete</a></td>";
+				echo "<td><a href='update.php?id=".$row["rest_id"]."'>Modify</a></td>";
+				echo "<td><a href='delete.php?id=".$row["rest_id"]."'>Delete</a></td>";
 				echo "</tr>";
 			}
 		} else {
@@ -61,6 +63,6 @@
 	?>
 
 </table>
-<!-- <p align="center"><a href="create.html">Add Data</a></p> -->
+<p align="center"><a href="create.html">Add Data</a></p>
 </body>
 </html>

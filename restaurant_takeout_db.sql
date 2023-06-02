@@ -86,11 +86,8 @@ INSERT INTO `menu` (`food_name`, `food_price`, `food_description`) VALUES
     ('Bubble Milk Tea', 60, 'A popular Taiwanese drink with tapioca pearls and creamy milk tea.');
 
 INSERT INTO `restaurant_menu` (`rest_id`, `menu_id`) VALUES
-    ('1', '1'),
-    ('1', '2'),
-    ('1', '3'),
-    ('2', '4'),
-    ('2', '5');
+    (1, 1),
+    (2, 4);
 
 INSERT INTO `order` (`order_total_cost`, `order_status`, `pickup_time`) VALUES
     (50, 'Pending', '2023-05-27 14:30:00'),
@@ -99,10 +96,12 @@ INSERT INTO `order` (`order_total_cost`, `order_status`, `pickup_time`) VALUES
 
 INSERT INTO `login_cred` (`user_name`, `user_email`, `user_password`, `user_type`) VALUES 
     ('John Doe', 'john@example.com', 'password123', 'customer'),
+    ('Miranda', 'miranda@example.com', '12345', 'customer'),
     ('Pizza Palace', 'info@pizzapalace.com', 'restaurantpass', 'restaurant');
 
 INSERT INTO `customer` (`cust_name`, `cust_telp_num`) VALUES 
-    ('John Doe', '1234567890');
+    ('John Doe', '1234567890'),
+    ('Miranda', '0987654321');
 
 INSERT INTO `cust_order` (`cust_id`, `order_id`) VALUES
     (1, 1),

@@ -2,7 +2,7 @@
     include('session.php');
 	include("config.php");
 ?>
-<?php include('navbar.php'); ?>
+<?php include('adminNavbar.php'); ?>
 
 <html>
 <head>
@@ -23,7 +23,7 @@
 
 </style>
 <body>
-<h1>Welcome <?php
+<h1>Welcome Admin <?php
 		$sql = "SELECT user_name FROM login_cred WHERE login_id = '$login_session'";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
@@ -62,8 +62,8 @@
 				echo "<td>".$row["rest_address"]."</td>";
 				echo "<td>".$row["rest_description"]."</td>";
 				echo "<td>".$row["rest_open_status"]."</td>";
-				// echo "<td><a href='update.php?id=".$row["rest_id"]."'>Modify</a></td>";
-				// echo "<td><a href='delete.php?id=".$row["rest_id"]."'>Delete</a></td>";
+				//echo "<td><a href='update.php?id=".$row["rest_id"]."'>Modify</a></td>";
+				echo "<td><a href='delete.php?id=".$row["rest_id"]."'>Delete</a></td>";
 				echo "</tr>";
 			}
 		} else {

@@ -8,7 +8,7 @@
         $cust_id = $row["cust_id"];
     }
 ?>
-<?php include('navbar.php'); ?>
+<?php include('adminNavbar.php'); ?>
 
 <html>
 <head>
@@ -35,25 +35,22 @@
                     }?> orders</h1>
 <table style="width:50%" align="center">
 	<tr>
-		<th>ID</th>
-		<th>Order Cost</th>
-		<th>Order Status</th>
-		<th>Pickup Time</th>
+		<th>Order ID</th>
+		<th>Customer Name</th>
 		<!-- <th colspan="2">Action</th> -->
 	</tr>
 
 	<?php
 		// Retrieve data from the menu table
-		$sql = "SELECT * FROM `order` WHERE `order_id` IN (SELECT `order_id` FROM `cust_order` WHERE `cust_id` = '$cust_id')";
+		//$sql = "SELECT * FROM `order` WHERE `order_id` IN (SELECT `order_id` FROM `cust_order` WHERE `cust_id` = '$cust_id')";
+        $sql = "SELECT * FROM `customer` NATURAL JOIN `cust_order` WHERE `order_id` IN (SELECT `order_id` FROM `cust_order` WHERE `cust_id` = '$cust_id')";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                 echo "<tr>";
                 echo "<td><a href='orderItems.php?order_id=".$row["order_id"]."'>" . $row["order_id"] . "</a></td>";
-                echo "<td>".$row["order_total_cost"]."</td>";
-                echo "<td>".$row["order_status"]."</td>";
-                echo "<td>".$row["pickup_time"]."</td>";
+                echo "<td>".$row["cust_name"]."</td>";
                 // echo "<td><a href='update.php?id=".$row["order_id"]."'>Modify</a></td>";
                 // echo "<td><a href='delete.php?id=".$row["order_id"]."'>Delete</a></td>";
                 echo "</tr>";

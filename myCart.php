@@ -1,11 +1,3 @@
-<script>
-    function confirmDelete() {
-        var confirmed = confirm('Are you sure you want to delete?');
-        document.getElementById('confirm_delete').value = confirmed ? '1' : '0';
-        return confirmed;
-    }
-</script>
-
 <?php
     include('session.php');
     include("config.php");
@@ -17,20 +9,6 @@
     }
     $orderPlaced = $_SESSION['orderPlaced'];
     $order_id = $_SESSION['orderPlaced'];
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $menu_id = $_POST["menu_id"];
-        $food_price = $_POST["food_price"];
-        $confirm = $_POST["confirm_delete"];
-
-        if ($confirm === "1") {
-            $sql = "DELETE FROM order_items WHERE menu_id = $menu_id AND order_id = $order_id LIMIT 1";
-            $conn->query($sql);
-
-            $sql = "UPDATE `order` SET `order_total_cost` = `order_total_cost` - '$food_price' WHERE `order_id` = '$order_id'";
-            $conn->query($sql);
-        }
-    }
 ?>
 <?php include('navbar.php'); ?>
 
@@ -65,7 +43,6 @@
         <th>Food Name</th>
         <th>Food Price</th>
         <th>Food Description</th>
-        <th>Edit</th>
     </tr>
 
     <?php
@@ -83,14 +60,6 @@
             echo "<td>" . $row["food_name"] . "</td>";
             echo "<td>" . $row["food_price"] . "</td>";
             echo "<td>" . $row["food_description"] . "</td>";
-            echo '<td>
-                    <form method="post" onsubmit="return confirmDelete()">
-                        <input type="hidden" name="menu_id" value="' . $row['menu_id'] . '" />
-                        <input type="hidden" name="food_price" value="' . $row['food_price'] . '" />
-                        <input type="hidden" name="confirm_delete" id="confirm_delete" value="0" />
-                        <button type="submit">Delete</button>
-                    </form>
-                    </td>';        
             echo "</tr>";
         }
     } else {
@@ -102,10 +71,9 @@
 
 </table>
 <p align="center">
-    <a href="payment.php?order_id=<?php echo $order_id; ?>"><button type="button">Payment</button></a>
+    <!-- <a href="create.html">Add Data</a> -->
+    <a href="payment.php?order_id=<?php echo $row['order_id']; ?>"><button type="button">Payment</button></a>
 </p>
 </body>
 </html>
-
-
 

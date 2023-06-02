@@ -7,7 +7,7 @@
         overflow: hidden;
     }
 
-    nav li {
+    nav li.has {
         float: left;
     }
 
@@ -24,14 +24,17 @@
     nav li a:hover {
         background-color: #72C6B8;
     }
+
+    nav li.acclogout {
+        float : right;
+    }
     
 </style>
 
 <nav>
     <ul>
-        <li><a class="active" href="restaurants.php">Home</a></li>
-        <li><a href="myOrders.php">My Orders</a></li>
-        <li><a href="myCart.php">My Cart</a></li>
+        <li class="has"><a class="active" href="adminMainPage.php">Home</a></li>
+        <li class="has"><a href="aboutUs.php">About Us</a></li>
 
         <?php
         if(!isset($_SESSION['login_user'])){
@@ -45,10 +48,10 @@
                 if($user_name == NULL){
                     echo '<li><a class="active" href="login.php">Login';
                 } else {
-                    echo '<li><a href="userpage.php">Hi ';
-                    echo $user_name;
+                    echo '<li class="acclogout"><a class="active" href="logout.php">Logout';
                     echo '</a></li>';
-                    echo '<li><a class="active" href="logout.php">Logout';
+                    echo '<li class="acclogout"><a href="userpage.php">Hi ';
+                    echo $user_name;                   
                 }
             }   
         }
