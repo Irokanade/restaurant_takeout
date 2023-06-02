@@ -1,7 +1,7 @@
 <?php
    $servername = "localhost";
    $username = "root";
-   $password = "";
+   $password = "12345678";
    $dbname = "restaurant_takeout_db";
    
    // Connect MySQL server
