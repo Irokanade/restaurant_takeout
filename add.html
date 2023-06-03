@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>add Data</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+	
+	<h1 align="center">Add Data</h1>
+	<form action="add.php" method="post">	
+	  <table width="500" border="1" bgcolor="#cccccc" align="center">
+		<tr>
+		  <th>Username</th>
+		  <td bgcolor="#FFFFFF"><input type="text" name="user_name" /></td>
+		</tr>
+		<tr>
+		  <th>Password</th>
+		  <td bgcolor="#FFFFFF"><input type="password" name="user_password"  /></td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td bgcolor="#FFFFFF"><input type="email" name="user_email"  /></td>
+		  </tr>
+		<tr>
+		  <th>User Type</th>
+		  <td bgcolor="#FFFFFF"><input type="radio" name="user_type" value="restaurant">
+			restaurant
+			<input type="radio" name="user_type" value="customer" >
+			customer</td>
+		</tr>
+		
+		<tr>
+		  <th colspan="2"><input type="submit" value="Add data"/></th>
+		  
+		</tr>
+	  </table>
+	</form>
+	
+</body>
+	
+</html>
