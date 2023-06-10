@@ -7,7 +7,7 @@
 
 <html>
 <head>
-    <title>menu</title>
+    <title>Menu</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <style>
@@ -50,7 +50,11 @@
                 echo "<td>".$row["food_name"]."</td>";
                 echo "<td>".$row["food_price"]."</td>";
                 echo "<td>".$row["food_description"]."</td>";
-                echo "<td><a href='r_edit_menu.php?menu_id=".$row["menu_id"]."'>Edit</a></td>";
+                echo "<td>";
+                echo "<a href='r_edit_menu.php?menu_id=".$row["menu_id"]."'>Edit</a>";
+                echo " | ";
+                echo "<a href='r_delete_menu.php?menu_id=".$row["menu_id"]."' onclick='return confirm(\"Are you sure you want to delete this menu item?\")'>Delete</a>";
+                echo "</td>";
                 echo "</tr>";
             }
         } else {
