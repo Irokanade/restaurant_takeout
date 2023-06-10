@@ -1,10 +1,3 @@
-<?php
-session_start(); // 添加此行以启动会话
-
-// 确保数据库连接配置被包含
-include('config.php');
-
-?>
 <style>
     nav{
         font-family:Arial, Helvetica, sans-serif;
