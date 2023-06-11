@@ -45,7 +45,7 @@
     $conn->close();
 ?>
 
-<?php include('navbar.php'); ?>
+<?php include('r_navbar.php'); ?>
 
 <html>
 <head>

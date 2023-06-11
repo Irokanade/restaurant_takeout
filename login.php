@@ -14,7 +14,7 @@
 
       if ($result->num_rows == 1) {	
         $_SESSION['login_user'] = $myusername;
-        header("location: restaurants.php");
+        header("location: r_mainpage.php");
       } else {
         echo "Your Login Name or Password is invalid";
       }

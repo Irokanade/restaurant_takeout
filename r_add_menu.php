@@ -20,12 +20,12 @@
             // 将菜单项与餐厅关联
             $sql = "INSERT INTO restaurant_menu (rest_id, menu_id) VALUES ('$rest_id', '$menu_id')";
             if ($conn->query($sql) === TRUE) {
-                echo "菜单项已成功添加！";
+                echo "菜單項已成功添加！";
             } else {
-                echo "错误：" . $conn->error;
+                echo "錯誤：" . $conn->error;
             }
         } else {
-            echo "错误：" . $conn->error;
+            echo "錯誤：" . $conn->error;
         }
     }
 
@@ -36,7 +36,7 @@
     $conn->close();
 ?>
 
-<?php include('navbar.php'); ?>
+<?php include('r_navbar.php'); ?>
 
 <html>
 <head>

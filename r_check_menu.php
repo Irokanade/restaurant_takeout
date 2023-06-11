@@ -11,7 +11,7 @@
     $result = $conn->query($sql);
 ?>
 
-<?php include('navbar.php'); ?>
+<?php include('r_navbar.php'); ?>
 
 <html>
 <head>
