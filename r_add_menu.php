@@ -13,6 +13,7 @@
         $sql = "INSERT INTO menu (food_name, food_price, food_description) VALUES ('$food_name', '$food_price', '$food_description')";
         
         if ($conn->query($sql) === TRUE) {
+<<<<<<<<< Temporary merge branch 1
             // 获取刚插入的菜单项的ID
             $menu_id = $conn->insert_id;
 
