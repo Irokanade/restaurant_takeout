@@ -26,7 +26,7 @@ if(isset($_POST['delete_menu_id'])){
 
 <html>
 <head>
-    <title>menu</title>
+    <title>餐廳菜單</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <style>
@@ -39,7 +39,11 @@ if(isset($_POST['delete_menu_id'])){
         text-align: left;
     }
 </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <body>
+
 <h1 align="center"><?php
     $sql = "SELECT rest_name FROM restaurant WHERE rest_id = '$rest_id'";
     $result = $conn->query($sql);
@@ -48,7 +52,7 @@ if(isset($_POST['delete_menu_id'])){
         echo $row["rest_name"];
     }
 ?></h1>
-<table style="width:50%" align="center">
+<table class="table table-striped table-hover" style="width:50%" align="center">
     <tr>
         <th>ID</th>
         <th>Food Name</th>
