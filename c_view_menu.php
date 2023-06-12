@@ -54,6 +54,7 @@ include("config.php");
 
 <div class="topnav">
     <a class="active" href="index.php">餐廳自取外賣平台</a>
+    <a href="index.php#rest">餐廳選項</a>
     <div class="right">
         <a href="login.php">登入</a>
     </div>
