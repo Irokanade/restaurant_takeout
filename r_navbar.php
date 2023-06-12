@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('session.php');
+include('sessionRestaurant.php');
 include('config.php');
 ?>
 
