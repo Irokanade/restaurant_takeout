@@ -9,12 +9,20 @@
       $myusername = mysqli_real_escape_string($conn,$_POST['username']);
       $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
       
-      $sql = "SELECT login_id FROM login_cred WHERE user_name = '$myusername' and user_password = '$mypassword'";
+      $sql = "SELECT * FROM login_cred WHERE user_name = '$myusername' and user_password = '$mypassword'";
       $result = $conn->query($sql);	// Send SQL Query
 
       if ($result->num_rows == 1) {	
+         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
         $_SESSION['login_user'] = $myusername;
-        header("location: r_mainpage.php");
+        $_SESSION['login_type'] = $row["user_type"];
+        if($_SESSION['login_type'] == "customer") {
+         header("location: restaurants.php");
+        } else if($_SESSION['login_type'] == "restaurant") {
+         header("location: r_mainpage.php");
+        } else if($_SESSION['login_type'] == "admin") {
+         header("location: adminMainPage.php");
+        }
       } else {
         echo "Your Login Name or Password is invalid";
       }
