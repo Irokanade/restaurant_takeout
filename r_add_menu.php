@@ -13,14 +13,29 @@
         $sql = "INSERT INTO menu (food_name, food_price, food_description) VALUES ('$food_name', '$food_price', '$food_description')";
         
         if ($conn->query($sql) === TRUE) {
+<<<<<<< HEAD
+            // 获取刚插入的菜单项的ID
+            $menu_id = $conn->insert_id;
+
+            // 将菜单项与餐厅关联
+            $sql = "INSERT INTO restaurant_menu (rest_id, menu_id) VALUES ('$rest_id', '$menu_id')";
+            if ($conn->query($sql) === TRUE) {
+                echo "菜單項已成功添加！";
+            } else {
+                echo "錯誤：" . $conn->error;
+            }
+        } else {
+            echo "錯誤：" . $conn->error;
+=======
             echo "菜單項目已成功加入！";
         } else {
             echo "錯誤： " . $conn->error;
+>>>>>>> main
         }
     }
 ?>
 
-<?php include('navbar.php'); ?>
+<?php include('r_navbar.php'); ?>
 
 <html>
 <head>
