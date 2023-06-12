@@ -84,6 +84,7 @@
     </h1>
 </div>
 <h2>
+    <?php include('sessionAdmin.php');?>
     What would you like to do?
 </h2>
 

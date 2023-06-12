@@ -1,5 +1,5 @@
 <?php
-include "session.php";
+include "sessionCustomer.php";
 include "config.php";
 
 // set cust_id

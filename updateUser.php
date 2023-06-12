@@ -9,7 +9,7 @@
 	<form action="doupdateUser.php" method="post">	
 	  <table width="500" border="1" bgcolor="#cccccc" align="center">
 		<?php
-		include('session.php');
+		include('sessionAdmin.php');
 		include("config.php");
 			
 		$id = $_GET['id'];

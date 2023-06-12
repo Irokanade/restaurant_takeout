@@ -1,5 +1,5 @@
 <?php
-    include('session.php');
+    include('sessionRestaurant.php');
     include('config.php');
     
     // 檢查是否有提交表單
@@ -13,7 +13,6 @@
         $sql = "INSERT INTO menu (food_name, food_price, food_description) VALUES ('$food_name', '$food_price', '$food_description')";
         
         if ($conn->query($sql) === TRUE) {
-<<<<<<< HEAD
             // 获取刚插入的菜单项的ID
             $menu_id = $conn->insert_id;
 
@@ -26,11 +25,6 @@
             }
         } else {
             echo "錯誤：" . $conn->error;
-=======
-            echo "菜單項目已成功加入！";
-        } else {
-            echo "錯誤： " . $conn->error;
->>>>>>> main
         }
     }
 ?>

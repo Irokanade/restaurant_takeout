@@ -15,7 +15,7 @@
       $_SESSION['orderPlaced'] = $orderPlaced;
   }
    
-   if(!isset($_SESSION['login_user'])){
+   if(!isset($_SESSION['login_user']) || ($_SESSION['login_type'] != "admin")){
       header("location:login.php");
       die();
    }

@@ -64,7 +64,7 @@
                   </select><br><br>
                   <input style = "background:#5085C4; color:white;" type = "submit" value = " Submit "/><br/>
                </form>
-               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php# echo $error; ?></div>
+               <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php # echo $error; ?></div>
 					
             </div>
 				

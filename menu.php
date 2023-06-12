@@ -1,5 +1,5 @@
 <?php
-    include('session.php');
+    include('sessionCustomer.php');
     include("config.php");
     $rest_id = $_GET['rest_id'];
 ?>
