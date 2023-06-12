@@ -100,6 +100,7 @@ INSERT INTO `order` (`order_total_cost`, `order_status`, `pickup_time`) VALUES
 INSERT INTO `login_cred` (`user_name`, `user_email`, `user_password`, `user_type`) VALUES 
     ('John Doe', 'john@example.com', 'password123', 'customer'),
     ('Pizza Palace', 'info@pizzapalace.com', 'restaurantpass', 'restaurant');
+    ('admin', 'admin@gmail.com', 'admin', 'admin')
 
 INSERT INTO `customer` (`cust_name`, `cust_telp_num`) VALUES 
     ('John Doe', '1234567890');
