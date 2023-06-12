@@ -1,19 +1,19 @@
 <?php
     include('session.php');
     include('config.php');
-
-    // 检查是否有提交表单
+    
+    // 檢查是否有提交表單
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // 获取表单提交的菜单数据
-        $rest_id = $_POST['rest_id'];
+        // 獲取表單提交的菜單資料
         $food_name = $_POST['food_name'];
         $food_price = $_POST['food_price'];
         $food_description = $_POST['food_description'];
-
-        // 将菜单项插入到数据库
+        
+        // 在菜單資料表中插入新的菜單項目
         $sql = "INSERT INTO menu (food_name, food_price, food_description) VALUES ('$food_name', '$food_price', '$food_description')";
-
+        
         if ($conn->query($sql) === TRUE) {
+<<<<<<< HEAD
             // 获取刚插入的菜单项的ID
             $menu_id = $conn->insert_id;
 
@@ -26,14 +26,13 @@
             }
         } else {
             echo "錯誤：" . $conn->error;
+=======
+            echo "菜單項目已成功加入！";
+        } else {
+            echo "錯誤： " . $conn->error;
+>>>>>>> main
         }
     }
-
-    // 获取餐厅ID
-    $rest_id = $_GET['rest_id'];
-
-    // 关闭数据库连接
-    $conn->close();
 ?>
 
 <?php include('r_navbar.php'); ?>
@@ -46,7 +45,6 @@
 <body>
     <h1 align="center">Add Menu Item</h1>
     <form method="POST" action="">
-        <input type="hidden" name="rest_id" value="<?php echo $rest_id; ?>">
         <table align="center">
             <tr>
                 <td>Food Name:</td>
