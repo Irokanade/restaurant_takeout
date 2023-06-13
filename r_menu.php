@@ -52,7 +52,7 @@ if(isset($_POST['delete_menu_id'])){
         echo $row["rest_name"];
     }
 ?></h1>
-<table class="table table-striped table-hover" style="width:50%" align="center">
+<table class="table table-striped table-hover" style="width:70%" align="center">
     <tr>
         <th>ID</th>
         <th>Food Name</th>

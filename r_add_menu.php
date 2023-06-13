@@ -1,5 +1,5 @@
 <?php
-    include('session.php');
+    include('sessionRestaurant.php');
     include('config.php');
 
     // 检查是否有提交表单
