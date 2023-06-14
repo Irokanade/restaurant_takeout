@@ -1,5 +1,5 @@
 <?php
-    include('session.php');
+    include('sessionAdmin.php');
 	include("config.php");
 ?>
 <?php include('adminNavbar.php'); ?>
@@ -29,7 +29,6 @@
 		if ($result->num_rows > 0) {
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			$user_name = $row["user_name"];
-			echo $user_name;
 		}
 		?></h1>
 <h1 align="center">User List</h1>
