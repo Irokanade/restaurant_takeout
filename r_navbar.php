@@ -1,4 +1,7 @@
 <?php
+session_start();
+include('sessionRestaurant.php');
+include('config.php');
 ?>
 
 <style>
@@ -76,7 +79,7 @@
 <div class="topnav">
     <a class="active" href="r_mainpage.php">餐廳自取外賣平台</a>
     <?php
-    // Retrieve data for the current restaurant
+
     $sql = "SELECT * FROM restaurant INNER JOIN rest_login_cred ON restaurant.rest_id = rest_login_cred.rest_id WHERE rest_login_cred.login_id = '$login_session'";
     $result = $conn->query($sql);
 
@@ -85,13 +88,14 @@
         $rest_id = $row["rest_id"];
         $rest_name = $row["rest_name"];
 
-        // Display the restaurant name and link to the menu
+
         echo '<a href="r_menu.php?rest_id=' . $rest_id . '">' . $rest_name . '</a>';
         echo '<a href="r_menu.php?rest_id=' . $rest_id . '">' . '修改菜單' . '</a>';
     }
     ?>
     <a href="r_orders.php">查看訂單</a>
-    <a href="r_info_edit.php?rest_id=<?php echo $login_session; ?>">修改餐廳資料</a>
+    <a href="r_info_edit.php">修改餐廳資料</a>
+    <a href="r_report.php?rest_id=<?php echo $rest_id; ?>">餐廳報表</a>
     <div class="right">
         <?php
         if (isset($_SESSION['login_user'])) {
