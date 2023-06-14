@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 <?php include('sessionAdmin.php');
-=======
-<?php
 include('sessionAdmin.php');
->>>>>>> main
+
 include('config.php');
 ?>
 <style>
