@@ -1,4 +1,6 @@
 <?php
+include('sessionAdmin.php');
+include('config.php');
 ?>
 
 <style>
@@ -81,7 +83,7 @@
     <a> Hi Admin </a>
     <?php
         if (isset($_SESSION['login_user'])) {
-            $user_name = $_SESSION['login_user'];
+            $user_email = $_SESSION['login_user'];
             echo '<a class="activeright" href="logout.php">Logout</a>';
         } else {
             echo '<a class="active" href="login.php">Login</a>';

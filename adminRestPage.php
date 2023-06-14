@@ -56,7 +56,7 @@
 			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 				echo "<tr>";
 				// echo "<td>".$row["rest_id"]."</td>";
-				echo '<td><a href="menu.php?rest_id='.$row["rest_id"] . '">' . $row["rest_id"] . '</a></td>';
+				echo '<td><a href="adminMenu.php?rest_id='.$row["rest_id"] . '">' . $row["rest_id"] . '</a></td>';
 				echo "<td>".$row["rest_name"]."</td>";
 				echo "<td>".$row["rest_telp_num"]."</td>";
 				echo "<td>".$row["rest_address"]."</td>";

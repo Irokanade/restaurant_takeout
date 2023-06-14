@@ -18,8 +18,9 @@
          $errorMsg = "This Email address already exists!";
       } else {
          $insertSql = "INSERT INTO login_cred (user_name, user_email, user_password, user_type) VALUES ('$myusrname', '$myemail', '$mypasswd', '$mytype')";
-         if ($conn->query($insertSql) === TRUE && $mytype === "customer") {
-            $my_loginid = $conn->insert_id;
+         if($conn->query($insertSql) == TRUE) {
+            if($my_type === "customer") {
+               $my_loginid = $conn->insert_id;
             $insertSql = "INSERT INTO customer (cust_name, cust_telp_num) VALUES ('$myusrname', '$myphone')";
             if ($conn->query($insertSql) === TRUE) {
                $my_custid = $conn->insert_id;
@@ -29,17 +30,18 @@
                   header("location: login.php");
                }
             }
-         } else if ($conn->query($insertSql) === TRUE && $mytype === "restaurant") {
-            $my_loginid = $conn->insert_id;
-            $insertSql = "INSERT INTO restaurant (rest_name, rest_address, rest_open_status, rest_telp_num) VALUES ('$myusrname', '*', '*', '$myphone')";
-            if ($conn->query($insertSql) === TRUE) {
-               $my_restid = $conn->insert_id;
-               $insertSql = "INSERT INTO rest_login_cred(rest_id, login_id) VALUES ('$my_restid', '$my_loginid')";
+            } else if($mytype === "restaurant") {
+               $my_loginid = $conn->insert_id;
+               $insertSql = "INSERT INTO restaurant (rest_name, rest_address, rest_open_status, rest_telp_num) VALUES ('$myusrname', '*', '*', '$myphone')";
                if ($conn->query($insertSql) === TRUE) {
-                  echo "<script>alert('Success');</script>";
-                  header("location: login.php");
-               }
-            } 
+                  $my_restid = $conn->insert_id;
+                  $insertSql = "INSERT INTO rest_login_cred(rest_id, login_id) VALUES ('$my_restid', '$my_loginid')";
+                  if ($conn->query($insertSql) === TRUE) {
+                     echo "<script>alert('Success');</script>";
+                     header("location: login.php");
+                  }
+               } 
+            }
          }
       }      
    }
