@@ -20,7 +20,7 @@
 		text-align: left;
 	}
 </style>
-<body>
+<body bgcolor="#CEE9F3">
 <h1 align="center"><?php $sql = "SELECT rest_name FROM restaurant WHERE rest_id = '$rest_id'";
 		                $result = $conn->query($sql);
                         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);

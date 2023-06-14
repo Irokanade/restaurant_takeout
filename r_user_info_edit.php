@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('sessionRestaurant.php');
 include('config.php');
 

@@ -2,7 +2,6 @@
 include('sessionRestaurant.php');
 include("config.php");
 ?>
-
 <?php include('r_navbar.php'); ?>
 
 <html>

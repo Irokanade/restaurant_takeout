@@ -19,7 +19,7 @@
 		text-align: left;
 	}
 </style>
-<body>
+<body bgcolor="#CEE9F3">
 <h1>Welcome <?php
 		$sql = "SELECT user_name FROM login_cred WHERE login_id = '$login_session'";
 		$result = $conn->query($sql);
