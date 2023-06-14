@@ -1,6 +1,6 @@
 <?php
 
-include('session.php');
+include('sessionAdmin.php');
 include("config.php");
 
 if (isset($_POST['user_name']) && isset($_POST['user_password']) && isset($_POST['user_email']) && isset($_POST['user_type'])) {

@@ -1,24 +1,24 @@
 <?php
-    include('sessionCustomer.php');
+    include('sessionRestaurant.php');
     include("config.php");
 
 if(!isset($_SESSION['login_user'])){
             echo '<li><a class="active" href="login.php">Login';
         } else {
-            $orderQuery = "SELECT distinct o.*, r.rest_name
+            $orderQuery = "SELECT Distinct o.*, c.cust_name, c.cust_telp_num
             FROM `order` o
-            INNER JOIN cust_order co ON o.order_id = co.order_id
-            INNER JOIN cust_login_cred clc ON clc.cust_id = co.cust_id
-            INNER JOIN order_items oi ON oi.order_id = o.order_id
-            INNER JOIN restaurant_menu rm ON rm.menu_id = oi.menu_id
-            INNER JOIN restaurant r ON r.rest_id = rm.rest_id
-            WHERE clc.login_id = '$login_session'
+            JOIN cust_order co ON o.order_id = co.order_id
+            JOIN order_items oi ON oi.order_id = co.order_id
+            JOIN restaurant_menu rm ON rm.menu_id = oi.menu_id
+            JOIN rest_login_cred rlc ON rlc.rest_id = rm.rest_id
+            JOIN customer c ON c.cust_id = co.cust_id
+            WHERE rlc.login_id =  '$login_session'
             ORDER BY o.order_id DESC"; 
 
             $orderResult = $conn->query($orderQuery);
         }
 ?>
-<?php include('navbar.php'); ?>
+<?php include('r_navbar.php'); ?>
 <html>
 <head>
    <title>Sign in Page</title>
@@ -50,7 +50,7 @@ if(!isset($_SESSION['login_user'])){
    <center>
    <br/>
    <?php
-
+   // 注文情報がある場合にテーブルを表示
    if (mysqli_num_rows($orderResult) > 0) {
       while ($row = mysqli_fetch_assoc($orderResult)) {
       echo "<table bgcolor= #CEE9F3 border = solid width = 70%;>
@@ -59,22 +59,36 @@ if(!isset($_SESSION['login_user'])){
                   <th>&ensp;Total Cost&ensp;</th>
                   <th>&ensp;Status&ensp;</th>
                   <th>&ensp;Pickup Time&ensp;</th>
-                  <th>&ensp;Restaurant Name&ensp;</th>
+                  <th>&ensp;Name&ensp;</th>
+                  <th>&ensp;Phone&ensp;</th>
                </tr>";
 
          $orderId = $row['order_id'];
          $orderTotalCost = $row['order_total_cost'];
          $orderStatus = $row['order_status'];
          $pickupTime = $row['pickup_time'];
-         $restname = $row['rest_name'];
+         $cusename = $row['cust_name'];
+         $custtel = $row['cust_telp_num'];
 
          echo "<tr>
-                  <td>&ensp;<a href='orderItems.php?order_id=".$row["order_id"]."'>" . $row["order_id"] . "</a></td>
-                  <td>&ensp;$orderTotalCost&ensp;</td>
-                  <td>&ensp;$orderStatus&ensp;</td>
-                  <td>&ensp;$pickupTime&ensp;</td>
-                  <td>&ensp;$restname&ensp;</td>
-               </tr>";
+               <td>&ensp;$orderId&ensp;</td>
+               <td>&ensp;$orderTotalCost&ensp;</td>
+               <td>&ensp;$orderStatus&ensp;";
+      
+         // Confirmボタンを表示
+         if ($orderStatus === "Pending") {
+         echo "<form action='' method='POST'>
+                  <input type='hidden' name='orderId' value='$orderId'>
+                  <input type='hidden' name='action' value='confirm'>
+                  <input type='submit' name='confirmBtn' value='Confirm'>
+               </form>";
+         }
+
+         echo "</td>
+               <td>&ensp;$pickupTime&ensp;</td>
+               <td>&ensp;$cusename&ensp;</td>
+               <td>&ensp;$custtel&ensp;</td>
+            </tr>";
 
          $menuQuery = "SELECT m.food_name, m.food_price
                        FROM order_items oi
@@ -110,6 +124,14 @@ if(!isset($_SESSION['login_user'])){
    } else {
       echo "No orders found.";
    }
+
+   if (isset($_POST['action']) && $_POST['action'] === 'confirm' && isset($_POST['orderId'])) {
+      $confirmedOrderId = $_POST['orderId'];
+
+      $updateQuery = "UPDATE `order` SET order_status = 'Confirmed' WHERE order_id = $confirmedOrderId";
+      $conn->query($updateQuery);
+   }
+
    ?>
    <table/>
    <center/>

@@ -1,5 +1,5 @@
 <?php
-    include('session.php');
+    include('sessionCustomer.php');
     include("config.php");
     $order_id = $_SESSION['orderPlaced'];
 
@@ -27,7 +27,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
 </head>
-<body>
+<body bgcolor="#CEE9F3">
     choose pickup time
 
     <form action="" method="post">  

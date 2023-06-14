@@ -1,5 +1,5 @@
 <?php
-    include('session.php');
+    include('sessionCustomer.php');
     include("config.php");
     $sql = "SELECT cust_id FROM cust_login_cred WHERE login_id = '$login_session'";
     $result = $conn->query($sql);
@@ -12,7 +12,7 @@
 <?php include('navbar.php'); ?>
 
 <html>
-<head>
+<head bgcolor="#CEE9F3">
 	<title>Order Items</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>

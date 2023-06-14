@@ -1,5 +1,5 @@
 <?php
-    include('session.php');
+    include('sessionAdmin.php');
 	include("config.php");
 ?>
 <?php include('adminNavbar.php'); ?>

@@ -7,7 +7,7 @@
 </script>
 
 <?php
-    include('session.php');
+    include('sessionCustomer.php');
     include("config.php");
     $sql = "SELECT cust_id FROM cust_login_cred WHERE login_id = '$login_session'";
     $result = $conn->query($sql);
@@ -49,7 +49,7 @@
         text-align: left;
     }
 </style>
-<body>
+<body bgcolor="#CEE9F3">
 <h1 align="center"><?php
     $sql = "SELECT user_name FROM login_cred WHERE login_id = '$login_session'";
     $result = $conn->query($sql);

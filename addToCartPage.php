@@ -1,5 +1,5 @@
 <?php
-include "session.php";
+include "sessionCustomer.php";
 include "config.php";
 
 // set cust_id
@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
    </head>
    
-   <body bgcolor = "#FFFFFF">
+   <body bgcolor="#CEE9F3">
 	
       <div align = "center">
          <div style = "width:300px; border: solid 1px #333333; " align = "left">

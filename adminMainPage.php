@@ -1,4 +1,5 @@
-<?php include('adminNavbar.php'); ?>
+<?php include('adminNavbar.php');
+        include('sessionAdmin.php') ?>
 
 <style>
     body {

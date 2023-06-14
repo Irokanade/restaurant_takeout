@@ -1,26 +1,42 @@
 <?php
-    include('session.php');
+    include('sessionRestaurant.php');
     include('config.php');
-    
-    // 檢查是否有提交表單
+
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // 獲取表單提交的菜單資料
+
+        $rest_id = $_POST['rest_id'];
         $food_name = $_POST['food_name'];
         $food_price = $_POST['food_price'];
         $food_description = $_POST['food_description'];
-        
-        // 在菜單資料表中插入新的菜單項目
+
+
         $sql = "INSERT INTO menu (food_name, food_price, food_description) VALUES ('$food_name', '$food_price', '$food_description')";
-        
+
         if ($conn->query($sql) === TRUE) {
-            echo "菜單項目已成功加入！";
+
+            $menu_id = $conn->insert_id;
+
+
+            $sql = "INSERT INTO restaurant_menu (rest_id, menu_id) VALUES ('$rest_id', '$menu_id')";
+            if ($conn->query($sql) === TRUE) {
+                echo "菜單項已成功添加！";
+            } else {
+                echo "錯誤：" . $conn->error;
+            }
         } else {
-            echo "錯誤： " . $conn->error;
+            echo "錯誤：" . $conn->error;
         }
     }
+
+
+    $rest_id = $_GET['rest_id'];
+
+
+    $conn->close();
 ?>
 
-<?php include('navbar.php'); ?>
+<?php include('r_navbar.php'); ?>
 
 <html>
 <head>
@@ -30,6 +46,7 @@
 <body>
     <h1 align="center">Add Menu Item</h1>
     <form method="POST" action="">
+        <input type="hidden" name="rest_id" value="<?php echo $rest_id; ?>">
         <table align="center">
             <tr>
                 <td>Food Name:</td>

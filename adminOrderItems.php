@@ -1,5 +1,5 @@
 <?php
-    include('session.php');
+    include('sessionAdmin.php');
     include("config.php");
     $sql = "SELECT cust_id FROM cust_login_cred";
     $result = $conn->query($sql);
