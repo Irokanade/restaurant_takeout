@@ -1,3 +1,5 @@
+<?php include('sessionAdmin.php');?>
+
 <!DOCTYPE html>
 <html>
 <head>
