@@ -21,9 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             WHERE rest_id = '$rest_id'";
 
     if ($conn->query($sql) === TRUE) {
-        $success_message = "餐廳信息已成功更新";
+        $success_message = "Restaurant information successfully updated";
     } else {
-        $error_message = "更新餐廳信息時出錯：" . $conn->error;
+        $error_message = "An error occurred while updating restaurant information:" . $conn->error;
     }
 }
 
@@ -38,7 +38,7 @@ $conn->close();
 
 <html>
 <head>
-    <title>修改餐廳資料</title>
+    <title>Modify restaurant information</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
         h1 {
@@ -78,17 +78,17 @@ $conn->close();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<h1>修改餐廳資料</h1>
+<h1>Modify restaurant information</h1>
 
 <?php if (isset($success_message)): ?>
     <div class="alert alert-success">
-        <strong>成功!</strong> <?php echo $success_message; ?>
+        <strong>Success!</strong> <?php echo $success_message; ?>
     </div>
 <?php endif; ?>
 
 <?php if (isset($error_message)): ?>
     <div class="alert alert-warning">
-        <strong>警告!</strong> <?php echo $error_message; ?>
+        <strong>Warning!</strong> <?php echo $error_message; ?>
     </div>
 <?php endif; ?>
 

@@ -77,7 +77,7 @@ include('config.php');
     }
 </style>
 <div class="topnav">
-    <a class="active" href="r_mainpage.php">餐廳自取外賣平台</a>
+    <a class="active" href="r_mainpage.php">Restaurant Self-pickup Platform</a>
     <?php
 
     $sql = "SELECT * FROM restaurant INNER JOIN rest_login_cred ON restaurant.rest_id = rest_login_cred.rest_id WHERE rest_login_cred.login_id = '$login_session'";
@@ -90,18 +90,18 @@ include('config.php');
 
 
         echo '<a href="r_menu.php?rest_id=' . $rest_id . '">' . $rest_name . '</a>';
-        echo '<a href="r_menu.php?rest_id=' . $rest_id . '">' . '修改菜單' . '</a>';
+        echo '<a href="r_menu.php?rest_id=' . $rest_id . '">' . 'edit menu' . '</a>';
     }
     ?>
-    <a href="r_orders.php">查看訂單</a>
-    <a href="r_info_edit.php">修改餐廳資料</a>
-    <a href="r_report.php?rest_id=<?php echo $rest_id; ?>">餐廳報表</a>
+    <a href="r_orders.php">Check order</a>
+    <a href="r_info_edit.php">Modify restaurant information</a>
+    <a href="r_report.php?rest_id=<?php echo $rest_id; ?>">restaurant report</a>
     <div class="right">
         <?php
         if (isset($_SESSION['login_user'])) {
             $user_name = $_SESSION['login_user'];
             //echo '<a href="r_user_info_edit.php">Hi ' . $user_name . '</a>';
-            echo '<a href="r_user_info_edit.php">使用者資料 </a>';
+            echo '<a href="r_user_info_edit.php">User Profile</a>';
             echo '<a class="active" href="logout.php">Logout</a>';
         } else {
             echo '<a class="active" href="login.php">Login</a>';
