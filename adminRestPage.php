@@ -30,6 +30,14 @@
 	.tab {
         margin-left: 40px;
     }
+	p{
+        font-family:'Lucida Sans' ;
+		font-weight: bold;
+    }
+	h1{
+        font-family:'Lucida Sans' ;
+		font-weight: bold;
+    }
 
 </style>
 <body>
@@ -83,6 +91,6 @@
 	?>
 
 </table>
-<!-- <p align="center"><a href="create.html">Add Data</a></p> -->
+<p align="center"><a href="a_all_menu_report.php">View Menu Report</a></p>
 </body>
 </html>

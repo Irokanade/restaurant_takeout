@@ -85,6 +85,8 @@
     h1{
         font-size: 60px;
         margin-left: 50px;
+        font-family:'Lucida Sans' ;
+		font-weight: bold;
     }
 
     h2{
