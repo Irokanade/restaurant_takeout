@@ -2,7 +2,7 @@
 include('sessionRestaurant.php');
 include("config.php");
 
-// Check if the form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $rest_id = $_POST["rest_id"];
     $rest_telp_num = $_POST["rest_telp_num"];
@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $rest_open_status = $_POST["rest_open_status"];
     $rest_name = $_POST["rest_name"];
 
-    // Update the restaurant information in the database
+
     $sql = "UPDATE restaurant SET
             rest_telp_num = '$rest_telp_num',
             rest_address = '$rest_address',
@@ -27,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Get the current restaurant information
 $sql = "SELECT * FROM restaurant WHERE rest_id = '$login_session'";
 $result = $conn->query($sql);
 $row = mysqli_fetch_assoc($result);

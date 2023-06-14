@@ -5,10 +5,10 @@ $rest_id = $_GET['rest_id'];
 
 if(isset($_POST['delete_menu_id'])){
     $delete_menu_id = $_POST['delete_menu_id'];
-    // Delete menu from the menu table
+
     $delete_menu_sql = "DELETE FROM menu WHERE menu_id = '$delete_menu_id'";
     if($conn->query($delete_menu_sql) === TRUE) {
-        // Delete menu from the restaurant_menu table
+
         $delete_restaurant_menu_sql = "DELETE FROM restaurant_menu WHERE menu_id = '$delete_menu_id' AND rest_id = '$rest_id'";
         if($conn->query($delete_restaurant_menu_sql) === TRUE){
             echo "菜單刪除成功。";
@@ -52,7 +52,7 @@ if(isset($_POST['delete_menu_id'])){
         echo $row["rest_name"];
     }
 ?></h1>
-<table class="table table-striped table-hover" style="width:50%" align="center">
+<table class="table table-striped table-hover" style="width:70%" align="center">
     <tr>
         <th>ID</th>
         <th>Food Name</th>
@@ -62,7 +62,7 @@ if(isset($_POST['delete_menu_id'])){
     </tr>
 
     <?php
-        // Retrieve data from the menu table
+
         $sql = "SELECT * FROM menu WHERE menu_id IN (SELECT menu_id FROM restaurant_menu WHERE rest_id = '$rest_id')";
         $result = $conn->query($sql);
 

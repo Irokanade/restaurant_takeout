@@ -2,15 +2,15 @@
 include('sessionRestaurant.php');
 include('config.php');
 
-// 检查是否有提交表单
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // 获取表单提交的菜单数据
+
     $menu_id = $_POST['menu_id'];
     $food_name = $_POST['food_name'];
     $food_price = $_POST['food_price'];
     $food_description = $_POST['food_description'];
 
-    // 更新菜单项的数据
+
     $update_sql = "UPDATE menu SET food_name='$food_name', food_price='$food_price', food_description='$food_description' WHERE menu_id='$menu_id'";
 
     if ($conn->query($update_sql) === TRUE) {
@@ -22,29 +22,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// 获取要修改的菜单项的ID
+
 $menu_id = $_GET['menu_id'];
 
-// 查询菜单项的数据
+
 $select_sql = "SELECT * FROM menu WHERE menu_id='$menu_id'";
 $result = $conn->query($select_sql);
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 
-    // 提取检索到的数据
+
     $food_id = $row['food_id'];
     $food_name = $row['food_name'];
     $food_price = $row['food_price'];
     $food_description = $row['food_description'];
 
-    // 关闭结果集
+
     $result->close();
 } else {
     echo "未找到给定的菜单项";
     exit();
 }
 
-// 关闭数据库连接
+
 $conn->close();
 ?>
 
