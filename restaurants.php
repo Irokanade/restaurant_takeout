@@ -18,8 +18,29 @@
 		padding: 5px;
 		text-align: left;
 	}
-</style>
-<body bgcolor="#CEE9F3">
+	a {
+           display: block;
+           color: #000000;
+           font-weight: bold;
+           text-decoration: underline;
+    }
+	.image-container {
+		display: flex;
+		justify-content: center;
+	}
+
+	.image-container img {
+		width: 300px;
+		height: 300px;
+		margin-right: 10px;
+	}
+	.image-container .image-label {
+		text-align: center;
+		font-weight: bold;
+		margin-top: 10px;
+	}
+   </style>
+<body>
 <h1>Welcome <?php
 		$sql = "SELECT user_name FROM login_cred WHERE login_id = '$login_session'";
 		$result = $conn->query($sql);
@@ -70,7 +91,52 @@
 		$conn->close();
 	?>
 
+
 </table>
+<center>
+<br/>
+<div class="image-container">
+  <div>
+  	<a href="city.php?image_id=1">
+     <img src="Photo/A.jpeg" alt="Image A">
+     <div class="image-label">Big Taipei Area</div>
+    </a>
+  </div>
+  <div>
+  	<a href="city.php?image_id=2">
+     <img src="Photo/B.jpeg" alt="Image B">
+     <div class="image-label">Kaohsiung</div>
+    </a> 
+  </div>
+  <div>
+  	<a href="city.php?image_id=3">
+     <img src="Photo/C.jpeg" alt="Image C">
+     <div class="image-label">Tainan</div>
+    </a>
+  </div>
+</div>
+<br/>
+<div class="image-container">
+      <div>
+      	<a href="city.php?image_id=4">
+         <img src="Photo/D.jpeg" alt="Image D">
+         <div class="image-label">Taichung</div>
+        </a>
+      </div>
+      <div>
+      	<a href="city.php?image_id=5">
+         <img src="Photo/E.jpeg" alt="Image E">
+         <div class="image-label">Taoyuan</div>
+        </a> 
+      </div>
+      <div>
+      	<a href="city.php?image_id=6">
+         <img src="Photo/F.jpeg" alt="Image F">
+         <div class="image-label">Other</div>
+        </a>
+      </div>
+   </div>
+<center/>
 <!-- <p align="center"><a href="create.html">Add Data</a></p> -->
 </body>
 </html>

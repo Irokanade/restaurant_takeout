@@ -5,13 +5,15 @@
 if(!isset($_SESSION['login_user'])){
             echo '<li><a class="active" href="login.php">Login';
         } else {
-            $orderQuery = "SELECT o.*, r.rest_name
-            FROM `cust_order` co
-            JOIN `order` o ON co.order_id = o.order_id
-            JOIN `restaurant_menu` rm ON o.order_id = rm.menu_id
-            JOIN `restaurant` r ON rm.rest_id = r.rest_id
-            JOIN `cust_login_cred` cl ON cl.cust_id = co.cust_id
-            WHERE cl.login_id = '$login_session'"; 
+            $orderQuery = "SELECT distinct o.*, r.rest_name
+            FROM `order` o
+            INNER JOIN cust_order co ON o.order_id = co.order_id
+            INNER JOIN cust_login_cred clc ON clc.cust_id = co.cust_id
+            INNER JOIN order_items oi ON oi.order_id = o.order_id
+            INNER JOIN restaurant_menu rm ON rm.menu_id = oi.menu_id
+            INNER JOIN restaurant r ON r.rest_id = rm.rest_id
+            WHERE clc.login_id = '$login_session'
+            ORDER BY o.order_id DESC"; 
 
             $orderResult = $conn->query($orderQuery);
         }
