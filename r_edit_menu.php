@@ -14,11 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $update_sql = "UPDATE menu SET food_name='$food_name', food_price='$food_price', food_description='$food_description' WHERE menu_id='$menu_id'";
 
     if ($conn->query($update_sql) === TRUE) {
-        echo "菜单项已成功更新！";
+        echo "Menu item updated successfully！";
         echo '<script>window.location.href = "r_menu.php";</script>';
         exit();
     } else {
-        echo "错误：" . $conn->error;
+        echo "Error:" . $conn->error;
     }
 }
 
@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
 
     $result->close();
 } else {
-    echo "未找到给定的菜单项";
+    echo "The given menu item was not found";
     exit();
 }
 

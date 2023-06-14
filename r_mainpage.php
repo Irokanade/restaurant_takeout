@@ -6,7 +6,7 @@ include("config.php");
 
 <html>
 <head>
-    <title>餐廳自取外賣平台</title>
+    <title>Restaurant self-pickup Platform</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
         body {
@@ -48,7 +48,7 @@ include("config.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<Marquee Direction="Right" BGColor="gray">歡迎使用餐廳自取外賣平台</Marquee>
+<Marquee Direction="Right" BGColor="gray">Welcome to the Restaurant self-pickup Platform</Marquee>
 <div class="jumbotron">
     <div class="container">
     <h1 class="display-3">Welcome <?php
@@ -64,7 +64,7 @@ include("config.php");
 </div>
 
 
-<h1 align="center">餐廳自取外賣平台</h1>
+<h1 align="center">Restaurant self-pickup Platform</h1>
 <table class="table table-striped table-hover" style="width: 60%" align="center">
     <tr>
         <th>Name</th>
