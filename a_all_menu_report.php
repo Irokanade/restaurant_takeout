@@ -1,3 +1,9 @@
+<style>
+    body {
+    background: #679D6B;
+    }
+</style>
+
 <?php include('sessionAdmin.php');?>
 
 <!DOCTYPE html>
@@ -7,12 +13,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
         table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
+            border: 2px solid black;
+            border-collapse:collapse;
+            background-color:cornsilk;
+            margin-left: 10px;
         }
         th, td {
             padding: 5px;
-            text-align: left;    
+            text-align: left;  
+            font-family:'Lucida Sans' ;
+		    font-weight: bold;  
         }
         body {
             margin: 0;
@@ -47,7 +57,8 @@
 <body>
 
     <div class="topnav">
-        <a class="active" href="">所有餐廳菜單累計數量報表</a>
+        <a class="active" href="adminMainPage.php">Home</a>
+        <a class="active" href="adminRestPage.php">Back to Rest page</a>
     </div>
 
     <?php
@@ -198,6 +209,7 @@
 
     $conn->close();
     ?>
+    
     <input value='Print' type='button' onclick='handlePrint()' />
     <script type="text/javascript">
         const handlePrint = () => {

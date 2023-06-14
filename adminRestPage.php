@@ -1,3 +1,9 @@
+<style>
+    body {
+    background: #679D6B;
+    }
+</style>
+
 <?php
     include('sessionAdmin.php');
 	include("config.php");
@@ -11,8 +17,9 @@
 </head>
 <style>
 	table, th, td {
-		border: 1px solid black;
-		border-collapse: collapse;
+		border: 2px solid black;
+		border-collapse:collapse;
+		background-color:cornsilk;
 	}
 	th, td {
 		padding: 5px;
@@ -20,19 +27,29 @@
 		font-family:'Lucida Sans' ;
 		font-weight: bold;
 	}
+	.tab {
+        margin-left: 40px;
+    }
+	p{
+        font-family:'Lucida Sans' ;
+		font-weight: bold;
+    }
+	h1{
+        font-family:'Lucida Sans' ;
+		font-weight: bold;
+    }
 
 </style>
 <body>
-<h1>Welcome <?php
+<h1 class="tab">Welcome Admin<?php
 		$sql = "SELECT user_name FROM login_cred WHERE login_id = '$login_session'";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			$user_name = $row["user_name"];
-			echo $user_name;
 		}
 		?></h1>
-<h1 align="center">餐廳自取外賣平台</h1>
+<h1 align="center">Restaurant List</h1>
 <table style="width:50%" align="center">
 	<tr>
 		<th>ID</th>
@@ -63,7 +80,7 @@
 				echo "<td>".$row["rest_description"]."</td>";
 				echo "<td>".$row["rest_open_status"]."</td>";
 				//echo "<td><a href='update.php?id=".$row["rest_id"]."'>Modify</a></td>";
-				echo "<td><a href='delete.php?id=".$row["rest_id"]."'>Delete</a></td>";
+				echo "<td><a href='deleteRest.php?id=".$row["rest_id"]."'>Delete</a></td>";
 				echo "</tr>";
 			}
 		} else {
@@ -74,6 +91,6 @@
 	?>
 
 </table>
-<!-- <p align="center"><a href="create.html">Add Data</a></p> -->
+<p align="center"><a href="a_all_menu_report.php">View Menu Report</a></p>
 </body>
 </html>

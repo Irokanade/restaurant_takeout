@@ -1,3 +1,9 @@
+<style>
+    body {
+    background: #679D6B;
+    }
+</style>
+
 <?php
     include('sessionAdmin.php');
 	include("config.php");
@@ -11,8 +17,9 @@
 </head>
 <style>
 	table, th, td {
-		border: 1px solid black;
-		border-collapse: collapse;
+		border: 2px solid black;
+		border-collapse:collapse;
+		background-color:cornsilk;
 	}
 	th, td , p{
 		padding: 5px;
@@ -20,10 +27,13 @@
 		font-family:'Lucida Sans' ;
 		font-weight: bold;
 	}
-
+	.tab {
+        margin-left: 40px;
+    }
+	
 </style>
 <body>
-<h1>Welcome Admin <?php
+<h1 class="tab">Welcome Admin<?php
 		$sql = "SELECT user_name FROM login_cred WHERE login_id = '$login_session'";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {

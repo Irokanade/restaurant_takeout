@@ -1,3 +1,9 @@
+<style>
+    body {
+    background: #679D6B;
+    }
+</style>
+
 <?php
     include('sessionAdmin.php');
     include("config.php");
@@ -9,7 +15,6 @@
     }
     $order_id = $_GET['order_id'];
 ?>
-<?php include('adminNavbar.php'); ?>
 
 <html>
 <head>
@@ -18,10 +23,9 @@
 </head>
 <style>
 	table, th, td {
-		border: 1px solid black;
-		border-collapse: collapse;
-        font-family:'Lucida Sans' ;
-		font-weight: bold;
+		border: 2px solid black;
+		border-collapse:collapse;
+		background-color:cornsilk;
 	}
 	th, td {
 		padding: 5px;
@@ -29,8 +33,49 @@
         font-family:'Lucida Sans' ;
 		font-weight: bold;
 	}
+    p{
+        font-family:'Lucida Sans' ;
+		font-weight: bold;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+    }
+    
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 20px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    
+    .topnav a.active {
+        background-color: #04AA6D;
+        color: white;
+    }
+
+
 </style>
+
 <body>
+<div class="topnav">
+    <a class="active" href="adminMainPage.php">Home</a>
+    <a class="active" href="adminOrdersPage.php">Back to order page</a>
+</div>
+
 <h1 align="center"><?php $sql = "SELECT cust_name FROM customer NATURAL JOIN cust_order WHERE order_id = '$order_id'";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
@@ -71,5 +116,6 @@
     ?>
 
 </table>
+<p align="center"><a href="adminOrdersPage.php">Back to Order List</a></p>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('sessionRestaurant.php');
+//include('sessionRestaurant.php');
 include('config.php');
 ?>
 
@@ -95,7 +95,7 @@ include('config.php');
     ?>
     <a href="r_orders.php">Check order</a>
     <a href="r_info_edit.php">Modify restaurant information</a>
-    <a href="r_report.php?rest_id=<?php echo $rest_id; ?>">restaurant report</a>
+    <a href="r_report.php?rest_id=<?php echo $rest_id; ?>">Restaurant report</a>
     <div class="right">
         <?php
         if (isset($_SESSION['login_user'])) {
