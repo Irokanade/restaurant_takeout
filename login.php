@@ -25,7 +25,7 @@
          header("location: adminMainPage.php");
         }
       } else {
-        echo "Your Login Name or Password is invalid";
+        $errorMsg = "Your Email or Password is invalid";
       }
    }
 ?>
@@ -91,9 +91,9 @@
                   <button type="button" id="showPasswordButton" onclick="togglePasswordVisibility()">Show</button><br><br>
                   <input type = "submit" value = " Submit "/><br />
                </form>
-               <div style="font-size: 16px; color: #cc0000; font-weight:bold; margin-top: 10px;"><?php echo $errorMsg; ?></div>
-					<a href="signup.php">Sign up</a><br/>
+               <a href="signup.php">Sign up</a><br/>
                <a href="forgot_pass.php">Forgot password</a><br/>
+               <div style="font-size: 16px; color: #cc0000; font-weight:bold; margin-top: 10px;"><?php echo $errorMsg; ?></div>
             </div>
 				
          </div>

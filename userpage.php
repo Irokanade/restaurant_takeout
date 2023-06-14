@@ -1,6 +1,7 @@
 <?php
    include("config.php");
    include("sessionCustomer.php");
+   include("navbar.php");
 
    $errorMsg = "";
 
@@ -14,21 +15,12 @@
       if ($mypasswd != $confirmPasswd) {
          $errorMsg = "Passwords do not match!";
       } else {
-         $loginId = $_SESSION['login_id'];
-         $updateSql = "UPDATE login_cred SET user_name = '$myusrname', user_email = '$myemail', user_password = '$mypasswd' WHERE login_id = '$loginId'";
+         $updateSql = "UPDATE login_cred SET user_name = '$myusrname', user_email = '$myemail', user_password = '$mypasswd' WHERE login_id = '$login_session'";
          if ($conn->query($updateSql) === TRUE) {
-            $userType = $_SESSION['user_type'];
-            if ($userType === "customer") {
-               $updateCustSql = "UPDATE customer SET cust_name = '$myusrname', cust_telp_num = '$myphone' WHERE cust_id = '$loginId'";
+               $updateCustSql = "UPDATE customer SET cust_name = '$myusrname', cust_telp_num = '$myphone' WHERE cust_id = '$login_session'";
                if ($conn->query($updateCustSql) === TRUE) {
                   echo "<script>alert('Update Successful');</script>";
                }
-            } elseif ($userType === "restaurant") {
-               $updateRestSql = "UPDATE restaurant SET rest_name = '$myusrname', rest_telp_num = '$myphone' WHERE rest_id = '$loginId'";
-               if ($conn->query($updateRestSql) === TRUE) {
-                  echo "<script>alert('Update Successful');</script>";
-               }
-            }
          } else {
             $errorMsg = "Failed to update record: " . $conn->error;
          }
