@@ -1,3 +1,9 @@
+<style>
+    body {
+    background: #679D6B;
+    }
+</style>
+
 <?php
     include('sessionAdmin.php');
     include("config.php");
@@ -17,8 +23,9 @@
 </head>
 <style>
 	table, th, td {
-		border: 1px solid black;
-		border-collapse: collapse;
+		border: 2px solid black;
+		border-collapse:collapse;
+		background-color:cornsilk;
 	}
 	th, td {
 		padding: 5px;
@@ -26,14 +33,20 @@
         font-family:'Lucida Sans' ;
 		font-weight: bold;
 	}
-    h1 {
-        text-align: center;
-        font-family:'Lucida Sans' ;
-		font-weight: bold;
+    .tab {
+        margin-left: 40px;
     }
 </style>
 <body>
-<h1> Order Lists </h1>
+<h1 class="tab">Welcome Admin<?php
+		$sql = "SELECT user_name FROM login_cred WHERE login_id = '$login_session'";
+		$result = $conn->query($sql);
+		if ($result->num_rows > 0) {
+			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+			$user_name = $row["user_name"];
+		}
+		?></h1>
+<h1 align="center">Order List</h1>
 <table style="width:50%" align="center">
 	<tr>
 		<th>Order ID</th>
