@@ -8,7 +8,7 @@ if (isset($id)) {
     $delete_sql = "DELETE FROM login_cred WHERE login_id = $id";
 
 	if ($conn->query($delete_sql) === TRUE) {
-        echo "Deleted!<a href='adminRestPage.php'>Back to Main page</a>";
+        echo "Deleted!<a href='adminUserPage.php'>Back to Main page</a>";
     }else{
         echo "Failed to delete!";
 	}

@@ -1,3 +1,9 @@
+<style>
+    body {
+    background: #679D6B;
+    }
+</style>
+
 <?php
     include('sessionAdmin.php');
     include("config.php");
@@ -18,10 +24,9 @@
 </head>
 <style>
 	table, th, td {
-		border: 1px solid black;
-		border-collapse: collapse;
-        font-family:'Lucida Sans' ;
-		font-weight: bold;
+		border: 2px solid black;
+		border-collapse:collapse;
+		background-color:cornsilk;
 	}
 	th, td {
 		padding: 5px;
@@ -29,6 +34,10 @@
         font-family:'Lucida Sans' ;
 		font-weight: bold;
 	}
+    p{
+        font-family:'Lucida Sans' ;
+		font-weight: bold;
+    }
 </style>
 <body>
 <h1 align="center"><?php $sql = "SELECT cust_name FROM customer NATURAL JOIN cust_order WHERE order_id = '$order_id'";
@@ -71,5 +80,6 @@
     ?>
 
 </table>
+<p align="center"><a href="adminOrdersPage.php">Back to Order List</a></p>
 </body>
 </html>

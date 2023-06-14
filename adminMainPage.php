@@ -100,10 +100,6 @@
 </style>
 
 <h1>Welcome Admin!</h1>
-<h2>
-    <br><br>
-   What would you like to view?
-</h2>
 
 <div></div>
 <div class="display-middle1 center">
@@ -116,6 +112,4 @@
   <p><a href="adminOrdersPage.php"><button class="btn-31"><span class="text-container"><span class="text">Order</span></span></button></a></p>
 </div>
 </div>
-
-
 
