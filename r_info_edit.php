@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-$sql = "SELECT * FROM restaurant WHERE rest_id = '$login_session'";
+$sql = "SELECT * FROM restaurant INNER JOIN rest_login_cred ON restaurant.rest_id = rest_login_cred.rest_id WHERE rest_login_cred.login_id = '$login_session'";
 $result = $conn->query($sql);
 $row = mysqli_fetch_assoc($result);
 
