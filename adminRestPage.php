@@ -80,7 +80,7 @@
 				echo "<td>".$row["rest_description"]."</td>";
 				echo "<td>".$row["rest_open_status"]."</td>";
 				//echo "<td><a href='update.php?id=".$row["rest_id"]."'>Modify</a></td>";
-				echo "<td><a href='delete.php?id=".$row["rest_id"]."'>Delete</a></td>";
+				echo "<td><a href='deleteRest.php?id=".$row["rest_id"]."'>Delete</a></td>";
 				echo "</tr>";
 			}
 		} else {
