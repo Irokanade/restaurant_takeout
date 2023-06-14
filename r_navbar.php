@@ -1,8 +1,3 @@
-<?php
-//include('sessionRestaurant.php');
-include('config.php');
-?>
-
 <style>
     nav {
         font-family: Arial, Helvetica, sans-serif;
