@@ -2,32 +2,26 @@
 include('sessionRestaurant.php');
 include('config.php');
 
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve the form data
+
     $login_id = $_POST['login_id'];
     $user_password = $_POST['user_password'];
     $confirm_password = $_POST['confirm_password'];
 
-    // Validate the password fields
     if ($user_password !== $confirm_password) {
         echo '<script>alert("Passwords do not match.");</script>';
     } else {
-        // Update the user password in the database
         $update_sql = "UPDATE login_cred SET user_password = '$user_password' WHERE login_id = '$login_id'";
         $update_result = $conn->query($update_sql);
 
         if ($update_result) {
-            // User password updated successfully
             echo '<script>alert("Password updated successfully.");</script>';
         } else {
-            // Error occurred while updating user password
             echo '<script>alert("Error: ' . $conn->error . '");</script>';
         }
     }
 }
 
-// Retrieve the user information from the database
 $select_sql = "SELECT * FROM login_cred WHERE login_id = '$login_session'";
 $select_result = $conn->query($select_sql);
 
@@ -38,11 +32,12 @@ if ($select_result->num_rows > 0) {
     $user_email = $row["user_email"];
     $user_type = $row["user_type"];
 } else {
-    // User information not found
     echo '<script>alert("User information not found.");</script>';
 }
 ?>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <?php include('r_navbar.php'); ?>
 <html>
 <head>

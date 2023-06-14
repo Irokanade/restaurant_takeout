@@ -68,7 +68,7 @@ include("config.php");
 <?php
 $rest_id = $_GET['rest_id'];
 
-// Retrieve data from the restaurant table
+
 $sql = "SELECT * FROM restaurant WHERE rest_id = '$rest_id'";
 $result = $conn->query($sql);
 
@@ -96,11 +96,11 @@ if ($result->num_rows > 0) {
 <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-4">
 
-        <!-- PHP code to retrieve and display data from the database -->
+
 
         <?php
 
-        // Retrieve data from the menu table
+
         $sql = "SELECT * FROM menu WHERE menu_id IN (SELECT menu_id FROM restaurant_menu WHERE rest_id = '$rest_id')";
         $result = $conn->query($sql);
 

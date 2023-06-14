@@ -76,11 +76,9 @@ include("config.php");
     <div class="container">
         <div class="row row-cols-1 row-cols-md-3 g-4">
 
-            <!-- PHP code to retrieve and display data from the database -->
 
             <?php
 
-            // Retrieve data from the restaurant table
             $sql = "SELECT * FROM restaurant";
             $result = $conn->query($sql);
 

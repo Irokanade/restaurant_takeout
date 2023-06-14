@@ -74,11 +74,10 @@ include("config.php");
         <th>Operating Hours</th>
     </tr>
 
-    <!-- PHP code to retrieve and display data from the database -->
+
 
     <?php
 
-    // Retrieve data for the current restaurant
     $sql = "SELECT * FROM restaurant INNER JOIN rest_login_cred ON restaurant.rest_id = rest_login_cred.rest_id WHERE rest_login_cred.login_id = '$login_session'";
     $result = $conn->query($sql);
 
