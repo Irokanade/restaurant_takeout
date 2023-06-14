@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <?php include('sessionAdmin.php');
+=======
+<?php
+include('sessionAdmin.php');
+>>>>>>> main
 include('config.php');
 ?>
 <style>
@@ -84,7 +89,7 @@ include('config.php');
     <a> Hi Admin </a>
     <?php
         if (isset($_SESSION['login_user'])) {
-            $user_name = $_SESSION['login_user'];
+            $user_email = $_SESSION['login_user'];
             echo '<a class="activeright" href="logout.php">Logout</a>';
         } else {
             echo '<a class="active" href="login.php">Login</a>';

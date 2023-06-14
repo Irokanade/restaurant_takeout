@@ -11,12 +11,12 @@ if(isset($_POST['delete_menu_id'])){
         // Delete menu from the restaurant_menu table
         $delete_restaurant_menu_sql = "DELETE FROM restaurant_menu WHERE menu_id = '$delete_menu_id' AND rest_id = '$rest_id'";
         if($conn->query($delete_restaurant_menu_sql) === TRUE){
-            echo "菜單刪除成功。";
+            echo "Menu deleted successfully.";
         } else {
-            echo "從 restaurant_menu 表中刪除菜單時出錯： " . $conn->error;
+            echo "Error deleting menu from restaurant_menu table： " . $conn->error;
         }
     } else {
-        echo "從菜單表中刪除菜單時出錯： " . $conn->error;
+        echo "An error occurred while removing a menu from the menu table： " . $conn->error;
     }
 }
 
@@ -26,7 +26,7 @@ if(isset($_POST['delete_menu_id'])){
 
 <html>
 <head>
-    <title>餐廳菜單</title>
+    <title>Restaurant Menu</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <style>

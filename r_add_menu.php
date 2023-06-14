@@ -20,12 +20,12 @@
 
             $sql = "INSERT INTO restaurant_menu (rest_id, menu_id) VALUES ('$rest_id', '$menu_id')";
             if ($conn->query($sql) === TRUE) {
-                echo "菜單項已成功添加！";
+                echo "Menu item added successfully！";
             } else {
-                echo "錯誤：" . $conn->error;
+                echo "Error：" . $conn->error;
             }
         } else {
-            echo "錯誤：" . $conn->error;
+            echo "Error:" . $conn->error;
         }
     }
 

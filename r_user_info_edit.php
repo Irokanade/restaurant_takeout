@@ -46,7 +46,7 @@ if ($select_result->num_rows > 0) {
 <?php include('r_navbar.php'); ?>
 <html>
 <head>
-    <title>更改密碼</title>
+    <title>Change Password</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
         .container {
@@ -86,23 +86,23 @@ if ($select_result->num_rows > 0) {
 </head>
 <body>
 <div class="container">
-    <h2>使用者資料</h2>
+    <h2>User Profile</h2>
     <div class="form-field">
-        <label for="user_name">使用者名稱:</label>
+        <label for="user_name">username:</label>
         <span id="user_name"><?php echo $user_name; ?></span>
     </div>
 
     <div class="form-field">
-        <label for="user_email">電子郵件:</label>
+        <label for="user_email">e-mail:</label>
         <span id="user_email"><?php echo $user_email; ?></span>
     </div>
 
     <div class="form-field">
-        <label for="user_type">使用者類型:</label>
-        <span id="user_type"><?php echo ($user_type == '1') ? '顧客' : '餐廳'; ?></span>
+        <label for="user_type">User type:</label>
+        <span id="user_type"><?php echo ($user_type == '1') ? 'customer' : 'restaurant'; ?></span>
     </div>
     
-    <h2>更改密碼</h2>
+    <h2>Change Password</h2>
     <?php
     if (isset($error_message)) {
         echo '<div class="error-message">' . $error_message . '</div>';
@@ -115,17 +115,17 @@ if ($select_result->num_rows > 0) {
         <input type="hidden" name="login_id" value="<?php echo $login_id; ?>">
 
         <div class="form-field">
-            <label for="user_password">新密碼:</label>
+            <label for="user_password">New Password:</label>
             <input type="password" id="user_password" name="user_password" required>
         </div>
 
         <div class="form-field">
-            <label for="confirm_password">確認密碼:</label>
+            <label for="confirm_password">Confirm Password:</label>
             <input type="password" id="confirm_password" name="confirm_password" required>
         </div>
 
         <div class="form-actions">
-            <input type="submit" value="更新密碼">
+            <input type="submit" value="update password">
         </div>
     </form>
 </div>

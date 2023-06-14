@@ -1,10 +1,11 @@
 <?php
 include("config.php");
+include('sessionRestaurant.php');
 ?>
 
 <html>
 <head>
-    <title>餐廳報表</title>
+    <title>Restaurant Report</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -82,9 +83,9 @@ include("config.php");
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            echo "<h1 class='text-center'>餐廳報表</h1>";
+            echo "<h1 class='text-center'>Restaurant Report</h1>";
             echo "<table class='table table-striped table-hover' >";
-            echo "<tr><th>ID</th><th>菜名</th><th>價格</th><th>描述</th><th>累計數量</th><th>總金額</th><th>餐廳</th></tr>";
+            echo "<tr><th>ID</th><th>Menu</th><th>Price</th><th>Describe</th><th>Cumulative Quantity</th><th>Amount of money</th><th>restaurant</th></tr>";
             //echo "<tr><th>菜單ID</th><th>菜名</th><th>價格</th><th>描述</th><th>累計數量</th><th>總金額</th></tr>";
             $total_amount = 0;
 
@@ -103,7 +104,7 @@ include("config.php");
                 echo "<tr><td>$menu_id</td><td>$food_name</td><td>$food_price</td><td>$food_description</td><td>$quantity</td><td>$total</td><td>$rest_name</td></tr>";
             }
 
-            echo "<tr><td colspan='5' class='text-end'>總金額：</td><td>$total_amount</td><td></td></tr>";
+            echo "<tr><td colspan='5' class='text-end'> Amount of money：</td><td>$total_amount</td><td></td></tr>";
 
             echo "</table>";
         } else {
