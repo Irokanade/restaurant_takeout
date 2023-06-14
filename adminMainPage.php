@@ -1,5 +1,7 @@
-<?php include('adminNavbar.php');
-        include('sessionAdmin.php') ?>
+<?php include("config.php");
+    include('sessionAdmin.php');
+    include('adminNavbar.php');
+     ?>
 
 <style>
     body {
@@ -78,6 +80,15 @@
     100% {
         transform: translateY(0%);
     }
+    }
+
+    h1{
+        font-size: 60px;
+        margin-left: 50px;
+    }
+
+    h2{
+        text-align: center;
     }
 
     .display-middle1{position:absolute;top:50%;left:50%;transform:translate(-160%,-50%);-ms-transform:translate(-50%,-50%)}
