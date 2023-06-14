@@ -1,6 +1,6 @@
-<?php
+<?php include('sessionAdmin.php');
+include('config.php');
 ?>
-
 <style>
     nav {
         font-family: Arial, Helvetica, sans-serif;
@@ -58,6 +58,8 @@
         padding: 14px 16px;
         text-decoration: none;
         font-size: 17px;
+        font-family:'Lucida Sans' ;
+		font-weight: bold;
     }
 
     .topnav a:hover {
@@ -74,6 +76,7 @@
         background-color: #04AA6D;
         color: white;
     }
+    
 
 </style>
 <div class="topnav">

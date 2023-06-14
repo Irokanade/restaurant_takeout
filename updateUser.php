@@ -1,3 +1,30 @@
+<style>
+body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    	background: #679D6B;
+    }
+h1{
+    font-size: 40px;
+    margin-left: 50px;
+    font-family:'Lucida Sans' ;
+	font-weight: bold;
+    text-align: center;
+}
+table, th, td {
+	border: 2px solid black;
+	border-collapse:collapse;
+	background-color:cornsilk;
+}
+th, td {
+	padding: 5px;
+	text-align: left;
+    font-family:'Lucida Sans' ;
+	font-weight: bold;
+}
+.display-middle{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%)}
+</style>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
