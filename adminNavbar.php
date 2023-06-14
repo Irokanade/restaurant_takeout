@@ -1,62 +1,91 @@
+<?php
+?>
+
 <style>
+    nav {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
     nav ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
-        background-color: #81DCCD;
+        background-color: #5085C4;
         overflow: hidden;
     }
 
-    nav li.has {
+    nav li {
         float: left;
     }
 
     nav li a {
         display: block;
-        color: #333;
+        color: #FFFFFF;
+        font-weight: bold;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
-        font-family:'Lucida Sans';
-        font-weight: bold;
     }
 
     nav li a:hover {
-        background-color: #72C6B8;
+        background-color: #ddd;
     }
 
-    nav li.acclogout {
-        float : right;
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
     }
-    
+
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .topnav a.activeright {
+        background-color: #04AA6D;
+        color: white;
+        float: right;
+    }
+    .topnav .active {
+        background-color: #04AA6D;
+        color: white;
+    }
+
 </style>
-
-<nav>
-    <ul>
-        <li class="has"><a class="active" href="adminMainPage.php">Home</a></li>
-        <li class="has"><a href="aboutUs.php">About Us</a></li>
-
-        <?php
-        if(!isset($_SESSION['login_user'])){
-            echo '<li><a class="active" href="login.php">Login';
+<div class="topnav">
+    <a class="active" href="adminMainPage.php">Home</a>
+    <a> Hi Admin </a>
+    <?php
+        if (isset($_SESSION['login_user'])) {
+            $user_name = $_SESSION['login_user'];
+            echo '<a class="activeright" href="logout.php">Logout</a>';
         } else {
-            $sql = "SELECT user_name FROM login_cred WHERE login_id = '$login_session'";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                $user_name = $row["user_name"];
-                if($user_name == NULL){
-                    echo '<li><a class="active" href="login.php">Login';
-                } else {
-                    echo '<li class="acclogout"><a class="active" href="logout.php">Logout';
-                    echo '</a></li>';
-                    echo '<li class="acclogout"><a href="userpage.php">Hi ';
-                    echo $user_name;                   
-                }
-            }   
+            echo '<a class="active" href="login.php">Login</a>';
         }
-        
-        ?></a></li>
-        
-    </ul>
-</nav>
+        ?>
+   
+</div>
