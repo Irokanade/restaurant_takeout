@@ -118,11 +118,11 @@
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        echo "<h1>所有餐廳報表</h1>";
+        echo "<h1>All Restaurant Reports</h1>";
         echo "<form method='get'>";
-        echo "<label for='restaurant'>選擇餐廳:</label>";
+        echo "<label for='restaurant'>Choose Restaurant:</label>";
         echo "<select name='restaurant' id='restaurant'>";
-        echo "<option value=''>所有餐廳</option>";
+        echo "<option value=''>All</option>";
 
         foreach ($restaurants as $id => $name) {
             $selected = ($selected_restaurant_id == $id) ? 'selected' : '';
@@ -130,10 +130,10 @@
         }
 
         echo "</select>";
-        echo "<button type='submit'>查詢</button>";
+        echo "<button type='submit'>search</button>";
         echo "</form>";
         echo "<table class='table table-striped table-hover'>";
-        echo "<tr><th>ID</th><th>菜名</th><th>價格</th><th>描述</th><th>累計數量</th><th>總金額</th><th>餐廳</th></tr>";
+        echo "<tr><th>ID</th><th>Food Name</th><th>Price</th><th>Description</th><th>Amount sold</th><th>Total cost</th><th>Restaurants</th></tr>";
 
         $total_amount = 0;
 
@@ -158,15 +158,15 @@
             echo "</tr>";
         }
 
-        echo "<tr><td colspan='6' align='right'><strong>總金額:</strong></td><td>$total_amount</td></tr>";
+        echo "<tr><td colspan='6' align='right'><strong>Total cost:</strong></td><td>$total_amount</td></tr>";
 
         echo "</table>";
     } else {
-        echo "<h1>所有餐廳報表</h1>";
+        echo "<h1>All Restaurant Reports</h1>";
         echo "<form method='get'>";
-        echo "<label for='restaurant'>選擇餐廳:</label>";
+        echo "<label for='restaurant'>Choose Restaurant:</label>";
         echo "<select name='restaurant' id='restaurant'>";
-        echo "<option value=''>所有餐廳</option>";
+        echo "<option value=''>All</option>";
 
         foreach ($restaurants as $id => $name) {
             $selected = ($selected_restaurant_id == $id) ? 'selected' : '';
@@ -174,7 +174,7 @@
         }
 
         echo "</select>";
-        echo "<button type='submit'>查詢</button>";
+        echo "<button type='submit'>search</button>";
         echo "</form>";
         echo "<table class='table table-striped table-hover'>";
 
