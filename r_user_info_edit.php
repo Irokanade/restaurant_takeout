@@ -87,13 +87,9 @@ if ($select_result->num_rows > 0) {
 <body>
 <div class="container">
     <h2>User Profile</h2>
-    <div class="form-field">
-        <label for="user_name">username:</label>
-        <span id="user_name"><?php echo $user_name; ?></span>
-    </div>
 
     <div class="form-field">
-        <label for="user_email">e-mail:</label>
+        <label for="user_email">E-mail:</label>
         <span id="user_email"><?php echo $user_email; ?></span>
     </div>
 

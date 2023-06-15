@@ -90,7 +90,7 @@ include('config.php');
 
 
         echo '<a href="r_menu.php?rest_id=' . $rest_id . '">' . $rest_name . '</a>';
-        echo '<a href="r_menu.php?rest_id=' . $rest_id . '">' . 'edit menu' . '</a>';
+        echo '<a href="r_menu.php?rest_id=' . $rest_id . '">' . 'Edit menu' . '</a>';
     }
     ?>
     <a href="r_orders.php">Check order</a>
