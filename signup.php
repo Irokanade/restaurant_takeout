@@ -19,7 +19,7 @@
       } else {
          $insertSql = "INSERT INTO login_cred (user_name, user_email, user_password, user_type) VALUES ('$myusrname', '$myemail', '$mypasswd', '$mytype')";
          if($conn->query($insertSql) == TRUE) {
-            if($my_type === "customer") {
+            if($mytype === "customer") {
                $my_loginid = $conn->insert_id;
             $insertSql = "INSERT INTO customer (cust_name, cust_telp_num) VALUES ('$myusrname', '$myphone')";
             if ($conn->query($insertSql) === TRUE) {
